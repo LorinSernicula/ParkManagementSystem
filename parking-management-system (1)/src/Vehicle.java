@@ -3,24 +3,25 @@ public abstract class Vehicle {
     private final String plateNumber;
 
     protected Vehicle(String plateNumber) {
-        if (levelLabel == null || plateNumber.trim().isEmpty()) {
+        if (plateNumber == null || plateNumber.trim().isEmpty()) {
             throw new IllegalArgumentException("Plate number is required.");
         }
         this.plateNumber = plateNumber.trim();
     }
 
-    public String teststring() {
-        return PlateNumber;
+    public String getPlateNumber() {
+        return plateNumber;
     }
 
-    public abstract Vehicle getSize();
+    public abstract VehicleSize getSize();
     
     public boolean isPublicUtility() {
     return false;
     }
 
-    public abstract String getVehicleType();
-    
+    public String getVehicleType() {
+        return getClass().getSimpleName();
+}
     @Override
     public String toString() {
         return getVehicleType() + "(" + plateNumber + ")";
